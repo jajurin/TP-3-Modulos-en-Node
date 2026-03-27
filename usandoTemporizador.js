@@ -1,36 +1,17 @@
-const numeros = [1,2,3,4,5,6,7,8,9,10];
-let fin="fin intervalo"
+function temporizadorMixto() {
+    console.log("ejericio 7:")
+    let contador = 1;
 
-function hacerTemporizadorInterval(callback) {
-    
-    let i = 0;
-
-    const miIntervalo = setInterval(() => {
-        console.log(numeros[i]);
-        i++;
-
-        if (i >= numeros.length) {
-            clearInterval(miIntervalo);
-            console.log(fin)
-             if (callback) callback();
-        }
+    const intervalo = setInterval(() => {
+        console.log(contador);
+        contador++;
     }, 1000);
+
+    
+    setTimeout(() => {
+        clearInterval(intervalo);
+        console.log("Fin del contador");
+    }, 11000);
 }
 
-function hacerTemporizadorTimeOut() {
-    let i = 0;
-
-    function imprimirNumero() {
-        if (i < numeros.length) {
-            console.log(numeros[i]);
-            i++;
-            setTimeout(imprimirNumero, 1000); // llama al siguiente después de 1s
-        } else {
-            console.log("fin timeout");
-        }
-    }
-
-    imprimirNumero(); // inicia la secuencia
-}
-
-export { hacerTemporizadorInterval, hacerTemporizadorTimeOut };
+export { temporizadorMixto };
